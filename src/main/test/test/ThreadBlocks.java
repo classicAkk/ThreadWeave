@@ -1,7 +1,7 @@
-package net.awyvrix.threadWeave.content;
+package net.awyvrix.threadWeave.content.test;
 
 import net.awyvrix.threadWeave.ThreadWeave;
-import net.awyvrix.threadWeave.content.general.custom.ReactorBlock;
+import net.awyvrix.threadWeave.content.test.general.custom.ReactorBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

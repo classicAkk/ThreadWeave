@@ -1,9 +1,6 @@
 package net.awyvrix.threadWeave;
 
-import net.awyvrix.threadWeave.content.*;
 import net.awyvrix.threadWeave.core.api.SimulationsBootstrap;
-import net.awyvrix.threadWeave.content.general.custom.ReactorBlockBE;
-import net.awyvrix.threadWeave.core.api.annotation.Simulations;
 import net.awyvrix.threadWeave.core.api.registry.SimulationUnitRegistry;
 import org.slf4j.Logger;
 
@@ -26,13 +23,12 @@ public class ThreadWeave {
 
     public ThreadWeave(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
-
         SimulationsBootstrap.init();
-        Simulations.bootstrapScan(ReactorBlockBE.class);
 
-        ThreadItems.register(modEventBus);
-        ThreadBlocks.register(modEventBus);
-        ThreadBlockEntities.register(modEventBus);
+//        Simulations.bootstrapScan(ReactorBlockBE.class);
+//        ThreadItems.register(modEventBus);
+//        ThreadBlocks.register(modEventBus);
+//        ThreadBlockEntities.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

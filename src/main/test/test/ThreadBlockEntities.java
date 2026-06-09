@@ -1,7 +1,7 @@
-package net.awyvrix.threadWeave.content;
+package net.awyvrix.threadWeave.content.test;
 
 import net.awyvrix.threadWeave.ThreadWeave;
-import net.awyvrix.threadWeave.content.general.custom.ReactorBlockBE;
+import net.awyvrix.threadWeave.content.test.general.custom.ReactorBlockBE;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;

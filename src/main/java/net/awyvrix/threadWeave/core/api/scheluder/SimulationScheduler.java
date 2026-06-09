@@ -63,6 +63,7 @@ public final class SimulationScheduler {
 
         executeWorldSync();
         executeIsolated();
+
         applyResults();
     }
 
@@ -81,8 +82,8 @@ public final class SimulationScheduler {
 
         for (SimulationUnit unit : isolatedUnits) {
             SimulationUnitType<?> type = registry.get(unit.typeId());
-
             int rate = type.isolatedRate();
+
             if (rate > 1 && tick % rate != 0) continue;
             tasks.add(taskFactory.create(unit, tick));
         }

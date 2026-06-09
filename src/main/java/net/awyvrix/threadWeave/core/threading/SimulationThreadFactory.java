@@ -10,10 +10,10 @@ public final class SimulationThreadFactory implements ThreadFactory {
 
     @Override
     public Thread newThread(Runnable runnable) {
-        Thread thread = new Thread(runnable, "Simulated thread-" + COUNTER.incrementAndGet());
+        Thread thread = new Thread(runnable, "Simulated Thread-" + COUNTER.incrementAndGet());
         thread.setDaemon(true);
         thread.setUncaughtExceptionHandler((t, e) -> LOGGER.error("Simulation thread crashed", e));
-        System.out.println("Created new thread");
+        //System.out.println("Created new thread");
 
         return thread;
     }

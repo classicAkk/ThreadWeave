@@ -1,4 +1,4 @@
-package net.awyvrix.threadWeave.content;
+package net.awyvrix.threadWeave.content.test;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;

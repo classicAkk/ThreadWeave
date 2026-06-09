@@ -1,11 +1,10 @@
-package net.awyvrix.threadWeave.content.general.custom;
+package net.awyvrix.threadWeave.content.test.general.custom;
 
 import net.awyvrix.threadWeave.ThreadWeave;
-import net.awyvrix.threadWeave.content.ThreadBlockEntities;
-import net.awyvrix.threadWeave.content.TickableBE;
+import net.awyvrix.threadWeave.content.test.ThreadBlockEntities;
+import net.awyvrix.threadWeave.content.test.TickableBE;
 import net.awyvrix.threadWeave.core.api.TickMode;
 import net.awyvrix.threadWeave.core.api.annotation.SimulatedThread;
-import net.awyvrix.threadWeave.core.api.annotation.Simulations;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;

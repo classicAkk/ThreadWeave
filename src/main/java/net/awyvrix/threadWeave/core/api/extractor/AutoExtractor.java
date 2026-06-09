@@ -1,8 +1,5 @@
 package net.awyvrix.threadWeave.core.api.extractor;
 
-import net.awyvrix.threadWeave.core.api.annotation.Simulations;
-import net.awyvrix.threadWeave.core.api.unit.SimulationUnit;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 
@@ -23,7 +20,6 @@ public final class AutoExtractor {
             }
             Constructor<?> ctor = dtoClass.getDeclaredConstructors()[0];
             ctor.setAccessible(true);
-            //Simulations.submit((SimulationUnit) source, dtoClass);
 
             return (T) ctor.newInstance(values);
 

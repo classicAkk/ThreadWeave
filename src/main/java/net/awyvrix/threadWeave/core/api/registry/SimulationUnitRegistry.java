@@ -1,6 +1,5 @@
 package net.awyvrix.threadWeave.core.api.registry;
 
-import net.awyvrix.threadWeave.core.api.runtime.SimulationTypeId;
 import net.awyvrix.threadWeave.core.api.unit.SimulationUnit;
 import net.awyvrix.threadWeave.core.api.unit.SimulationUnitId;
 
@@ -13,10 +12,6 @@ public final class SimulationUnitRegistry {
 
     public void register(SimulationUnit unit) {
         units.put(unit.id(), unit);
-    }
-
-    public void create(SimulationTypeId id) {
-
     }
 
     public SimulationUnit get(SimulationUnitId id) {

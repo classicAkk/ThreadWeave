@@ -1,4 +1,4 @@
-package net.awyvrix.threadWeave.content;
+package net.awyvrix.threadWeave.content.test;
 
 import net.awyvrix.threadWeave.ThreadWeave;
 import net.neoforged.bus.api.IEventBus;

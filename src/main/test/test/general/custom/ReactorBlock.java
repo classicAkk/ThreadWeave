@@ -1,6 +1,6 @@
-package net.awyvrix.threadWeave.content.general.custom;
+package net.awyvrix.threadWeave.content.test.general.custom;
 
-import net.awyvrix.threadWeave.content.TickableBE;
+import net.awyvrix.threadWeave.content.test.TickableBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;

@@ -42,9 +42,7 @@ public final class UnitFactory {
             }
         }
 
-        throw new IllegalStateException(
-                "No SimulationType registered for DTO " + dtoClass.getName()
-        );
+        throw new IllegalStateException("No SimulationType registered for DTO " + dtoClass.getName());
     }
 
     private long generateId(Object source) {

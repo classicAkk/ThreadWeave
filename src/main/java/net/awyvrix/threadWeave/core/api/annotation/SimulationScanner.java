@@ -1,6 +1,5 @@
 package net.awyvrix.threadWeave.core.api.annotation;
 
-
 import net.awyvrix.threadWeave.core.api.TickMode;
 import net.awyvrix.threadWeave.core.api.instance.SimulationInstance;
 import net.awyvrix.threadWeave.core.api.instance.SimulationInstanceRegistry;

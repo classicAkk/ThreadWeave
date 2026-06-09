@@ -1,4 +1,4 @@
-package net.awyvrix.threadWeave.content.general.custom;
+package net.awyvrix.threadWeave.content.test.general.custom;
 
 import net.minecraft.core.BlockPos;
 
