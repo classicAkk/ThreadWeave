@@ -1,11 +1,10 @@
 package net.awyvrix.threadWeave.core.api.annotation;
 
+import net.awyvrix.threadWeave.core.api.SimulationsBootstrap;
 import net.awyvrix.threadWeave.core.api.instance.SimulationInstanceRegistry;
 import net.awyvrix.threadWeave.core.api.registry.SimulationTypeRegistry;
 import net.awyvrix.threadWeave.core.api.runtime.SimulationRuntime;
 import net.awyvrix.threadWeave.core.api.unit.SimulationUnit;
-
-import static net.awyvrix.threadWeave.core.api.SimulationsBootstrap.unitFactory;
 
 public final class Simulations {
     private static SimulationScanner SCANNER;
@@ -30,7 +29,7 @@ public final class Simulations {
     }
 
     public static void submit(Object source) {
-        SimulationUnit unit = unitFactory.create(source);
+        SimulationUnit unit = SimulationsBootstrap.getContext().getUnitFactory().create(source);
         runtime.bind(unit.id(), source);
     }
 

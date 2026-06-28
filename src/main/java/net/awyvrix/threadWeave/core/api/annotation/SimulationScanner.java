@@ -19,19 +19,36 @@ public final class SimulationScanner {
     }
 
     public void scan(Class<?> owner) {
+        Method simulation = null;
+        Method extractor = null;
+        Method interpreter = null;
+        SimulationTypeId typeId = null;
+        SimulationUnitType type = null;
+
         for (Method method : owner.getDeclaredMethods()) {
-            if (!method.isAnnotationPresent(SimulatedThread.class)) continue;
-            SimulatedThread annotation = method.getAnnotation(SimulatedThread.class);
-            TickMode mode = annotation.mode();
-            int rate = annotation.tickRate();
-            SimulationTypeId typeId  = new SimulationTypeId(annotation.value());
+            if (method.isAnnotationPresent(SimulatedThread.class)) {
+                simulation = method;
+                SimulatedThread annotation = method.getAnnotation(SimulatedThread.class);
 
-            SimulationInstance<?, ?> instance = SimulationInstanceFactory.create(method, owner);
-            Class<?> dtoClass = method.getParameterTypes()[0];
-            SimulationUnitType type = new SimulationUnitType<Object>((Class<Object>) dtoClass, mode, rate);
+                TickMode mode = annotation.mode();
+                int rate = annotation.tickRate();
+                typeId = new SimulationTypeId(annotation.value());
 
-            typeRegistry.register(typeId , type);
-            registry.register(owner, instance);
+                Class<?> dtoClass = method.getParameterTypes()[0];
+                type = new SimulationUnitType<Object>((Class<Object>) dtoClass, mode, rate);
+            }
+
+            if (method.isAnnotationPresent(SimulatedExtractor.class)) {
+                extractor = method;
+            }
+
+            if (method.isAnnotationPresent(SimulatedInterpreter.class)) {
+                interpreter = method;
+            }
         }
+        if (simulation == null) return;
+        SimulationInstance<?, ?> instance = SimulationInstanceFactory.create(simulation, extractor, interpreter, owner);
+        typeRegistry.register(typeId , type);
+        registry.register(owner, instance);
     }
 }

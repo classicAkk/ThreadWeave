@@ -25,11 +25,6 @@ public class ThreadWeave {
         modEventBus.addListener(this::commonSetup);
         SimulationsBootstrap.init();
 
-//        Simulations.bootstrapScan(ReactorBlockBE.class);
-//        ThreadItems.register(modEventBus);
-//        ThreadBlocks.register(modEventBus);
-//        ThreadBlockEntities.register(modEventBus);
-
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
