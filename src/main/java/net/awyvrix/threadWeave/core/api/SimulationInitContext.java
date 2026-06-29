@@ -10,6 +10,8 @@ import net.awyvrix.threadWeave.core.api.runtime.SimulationRuntime;
 import net.awyvrix.threadWeave.core.api.scheluder.SimulationScheduler;
 import net.awyvrix.threadWeave.core.api.unit.UnitFactory;
 
+import static net.awyvrix.threadWeave.Config.MAX_THREADS;
+
 public final class SimulationInitContext {
     private final SimulationBindingRegistry bindingRegistry;
     private final SimulationTypeRegistry typeRegistry;
@@ -27,7 +29,7 @@ public final class SimulationInitContext {
 
         this.scheduler = new SimulationScheduler(
                 typeRegistry, unitRegistry,
-                new DirectSimulationExecutor(), new SimulationExecutorService(12),
+                new DirectSimulationExecutor(), new SimulationExecutorService(MAX_THREADS.get()),
                 instanceRegistry, bindingRegistry
         );
         this.runtime = new SimulationRuntime(scheduler, bindingRegistry);
