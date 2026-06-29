@@ -37,8 +37,7 @@ public final class SimulationTaskFactory {
             SimulationInstance<?, ?> instance = instanceRegistry.get(target.getClass());
 
             if (instance == null) throw new IllegalStateException("No simulation instance for " + target.getClass().getName());
-            SimulationUnitType<?> type = registry.get(unit.typeId());
-            Object dto = AutoExtractor.extract(target, type.dtoClass());
+            Object dto = instance.extract(target);
             SimulationResult<?> result = executor.execute(instance, target, dto, new SimulationContext(tick));
 
             return new CompletedSimulation<>(unit, result);

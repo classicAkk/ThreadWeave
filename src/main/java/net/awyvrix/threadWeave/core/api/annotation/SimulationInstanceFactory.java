@@ -6,9 +6,9 @@ import net.awyvrix.threadWeave.core.api.validator.SimulationValidator;
 import java.lang.reflect.Method;
 
 public final class SimulationInstanceFactory {
-    public static SimulationInstance<?, ?> create(Method method, Class<?> owner) {
-        SimulationValidator.validate(method);
+    public static SimulationInstance<?, ?> create(Method simulation, Method extractor, Method interpreter, Class<?> owner) {
+        SimulationValidator.validate(simulation);
 
-        return new SimulationInstance(method, method.getParameterTypes()[0]);
+        return new SimulationInstance(simulation, extractor, interpreter, simulation.getParameterTypes()[0]);
     }
 }

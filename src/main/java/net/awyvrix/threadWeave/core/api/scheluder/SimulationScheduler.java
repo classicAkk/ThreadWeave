@@ -4,6 +4,7 @@ import net.awyvrix.threadWeave.core.api.TickMode;
 import net.awyvrix.threadWeave.core.api.binding.SimulationBindingRegistry;
 import net.awyvrix.threadWeave.core.api.executor.DirectSimulationExecutor;
 import net.awyvrix.threadWeave.core.api.executor.SimulationExecutorService;
+import net.awyvrix.threadWeave.core.api.instance.SimulationInstance;
 import net.awyvrix.threadWeave.core.api.instance.SimulationInstanceRegistry;
 import net.awyvrix.threadWeave.core.api.interpreter.AutoInterpreter;
 import net.awyvrix.threadWeave.core.api.interpreter.CompletedSimulation;
@@ -129,7 +130,8 @@ public final class SimulationScheduler {
             Object target = bindingRegistry.get(unit.id());
 
             if (target == null) continue;
-            AutoInterpreter.apply(target, completed.result().delta());
+            SimulationInstance<?, ?> instance = instanceRegistry.get(target.getClass());
+            instance.apply(target, completed.result().delta());
         }
     }
 }
