@@ -14,6 +14,6 @@ public class ThreadWeaveClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-        ThreadWeave.LOGGER.info("Setting up client Isolated Simulations...");
+        ThreadWeave.LOGGER.info("Setting up client ThreadWeave...");
     }
 }

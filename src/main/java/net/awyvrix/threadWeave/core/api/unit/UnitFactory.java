@@ -5,6 +5,9 @@ import net.awyvrix.threadWeave.core.api.instance.SimulationInstanceRegistry;
 import net.awyvrix.threadWeave.core.api.registry.SimulationTypeRegistry;
 import net.awyvrix.threadWeave.core.api.registry.SimulationUnitRegistry;
 import net.awyvrix.threadWeave.core.api.runtime.SimulationTypeId;
+import net.minecraft.CrashReport;
+import net.minecraft.CrashReportCategory;
+import net.minecraft.ReportedException;
 
 public final class UnitFactory {
     private final SimulationUnitRegistry unitRegistry;

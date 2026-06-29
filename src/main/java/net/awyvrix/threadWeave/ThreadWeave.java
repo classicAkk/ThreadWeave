@@ -1,7 +1,5 @@
 package net.awyvrix.threadWeave;
 
-import net.awyvrix.threadWeave.core.api.SimulationsBootstrap;
-import net.awyvrix.threadWeave.core.api.registry.SimulationUnitRegistry;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -19,22 +17,20 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 public class ThreadWeave {
     public static final String MOD_ID = "thread_weave";
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static final SimulationUnitRegistry register = new SimulationUnitRegistry();
 
     public ThreadWeave(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
-        SimulationsBootstrap.init();
 
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-        LOGGER.info("Setting up Isolated Simulations...");
+        LOGGER.info("Setting up ThreadWeave...");
     }
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("Isolated Simulations Set-upped");
+    public void onServerStarted(ServerStartingEvent event) {
+        LOGGER.info("ThreadWeave Set-upped");
     }
 }
